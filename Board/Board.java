@@ -8,7 +8,15 @@ public class Board {
         {
             for (int j = 0; j < 8; j++)
             {
-                board[i][j] = new Square(); 
+
+                if((i + j) % 2 == 0)
+                {
+                    board[i][j] = new Square(false);
+                }
+                else
+                {
+                    board[i][j] = new Square(true);
+                }
             }
         }
     }
@@ -42,7 +50,6 @@ public class Board {
         {
             board[i][6].resident = new Pawn("black");
         }
-
 
     }
 

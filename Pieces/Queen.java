@@ -1,9 +1,9 @@
-public class Queen extends {
+public class Queen extends Piece {
 
     public Queen(String color)
     {
         super(color); 
     }
 
-    
+   
 }
