@@ -26,6 +26,9 @@ public class Game {
 
             System.out.println(""); 
        }
+
+       System.out.println("");
+       System.out.println("");
     }
 
     public String piece_identify (int x, int y)
@@ -93,13 +96,20 @@ public class Game {
         x2 = coord_assign(command.charAt(3));
         y2 = command.charAt(4) - ('0' + 1);
 
-        game_board.board[x1][y1].resident.move(x1, y1, x2, y2); 
+        if(game_board.board[x1][y1].resident.move(x1, y1, x2, y2))
+        {
+            game_board.board[x2][y2].resident = game_board.board[x1][y1].resident;
+            game_board.board[x1][y1].resident = new Blank("blank");
+        }
+
+        print_board();
 
     }
 
     public int coord_assign(char letter)
     {
         int coord = 1000;
+        System.out.println(letter);
 
         if (letter == 'A')
         {
@@ -109,27 +119,27 @@ public class Game {
         {
             coord = 1;
         }
-        else if (coord == 'C')
+        else if (letter == 'C')
         {
             coord = 2;
         }
-        else if (coord == 'D')
+        else if (letter == 'D')
         {
             coord = 3;
         }
-         else if (coord == 'E')
+         else if (letter == 'E')
         {
             coord = 4;
         }
-         else if (coord == 'F')
+         else if (letter == 'F')
         {
             coord = 5;
         }
-         else if (coord == 'G')
+         else if (letter == 'G')
         {
             coord = 6;
         }
-         else if (coord == 'C')
+         else if (letter == 'H')
         {
             coord = 7;
         }
