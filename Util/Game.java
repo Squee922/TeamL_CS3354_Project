@@ -1,6 +1,8 @@
 public class Game {
 
     Board game_board; 
+    Player player_white;
+    Player player_black; 
 
     public Game ()
     {
@@ -79,6 +81,62 @@ public class Game {
 
 
         return piece_name;
+    }
+
+    public void move_piece(String command)
+    {
+        int x1, y1, x2, y2;  
+
+        x1 = coord_assign(command.charAt(0));
+        y1 = command.charAt(1) - ('0' + 1);
+
+        x2 = coord_assign(command.charAt(3));
+        y2 = command.charAt(4) - ('0' + 1);
+
+        game_board.board[x1][y1].resident.move(x1, y1, x2, y2); 
+
+    }
+
+    public int coord_assign(char letter)
+    {
+        int coord = 1000;
+
+        if (letter == 'A')
+        {
+            coord = 0; 
+        }
+        else if (letter == 'B')
+        {
+            coord = 1;
+        }
+        else if (coord == 'C')
+        {
+            coord = 2;
+        }
+        else if (coord == 'D')
+        {
+            coord = 3;
+        }
+         else if (coord == 'E')
+        {
+            coord = 4;
+        }
+         else if (coord == 'F')
+        {
+            coord = 5;
+        }
+         else if (coord == 'G')
+        {
+            coord = 6;
+        }
+         else if (coord == 'C')
+        {
+            coord = 7;
+        }
+
+        return coord;
+
+
     }
 
 
