@@ -29,6 +29,8 @@ public class Queen extends Piece {
             return false; 
         }    
 
+        //Uses a combination of logic from the Rook and Bishop to determine
+        //move validity
         if(((x1 != x2) && (y1 != y2)) && ((x1 - x2) != (y1 - y2) && ((x1 - x2) != (-1 * (y1 - y2)))))
         {
             return false; 

@@ -29,6 +29,8 @@ public class Rook extends Piece {
             return false; 
         }    
 
+        //Boolean logic is used to determine if the piece has moved in a straight horizontal
+        //or a straight vertical manner. 
         if ((x1 != x2) && (y1 != y2))
         {
             return false; 

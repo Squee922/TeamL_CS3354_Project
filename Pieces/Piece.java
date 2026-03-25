@@ -1,3 +1,7 @@
+//The piece class is an abstract class
+//It stores the color of the piece as well as utility and 
+//abstract methods used in determining piece movement
+
 public abstract class Piece {
 
     String color; 
@@ -9,6 +13,9 @@ public abstract class Piece {
 
     public abstract Boolean move(int x1, int y1, int x2, int y2);
 
+
+    //This method checks to see if a user has attempted to move the
+    //piece to a location not on the chessboard
     public Boolean bounds_check(int bound)
     {
         Boolean valid = true;

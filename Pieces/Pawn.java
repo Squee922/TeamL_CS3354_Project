@@ -34,6 +34,7 @@ public class Pawn extends Piece  {
             return false; 
         }
 
+        //These two if statements guard against pawns being moved backwards. 
         if (this.color == "white" && y2 < y1)
         {
             return false;
