@@ -1,13 +1,20 @@
+import java.util.Scanner;
+
 public class Game {
 
     Board game_board; 
     Player player_white;
     Player player_black; 
 
+    Boolean turn; 
+    Boolean live; 
+
     public Game ()
     {
         game_board = new Board(); 
         game_board.reset_board();
+        turn = true; 
+        live = true; 
     }
 
     public void print_board()
@@ -109,7 +116,6 @@ public class Game {
     public int coord_assign(char letter)
     {
         int coord = 1000;
-        System.out.println(letter);
 
         if (letter == 'A')
         {
@@ -147,6 +153,53 @@ public class Game {
         return coord;
 
 
+    }
+
+    public String prompt_user()
+    {
+        Scanner input = new Scanner(System.in);
+
+        String command = input.nextLine();
+
+        while(command.length() != 5 )
+        {
+            System.out.println("Error! invalid command!"); 
+            System.out.println("Please input a valid command: ");
+            command  = input.nextLine(); 
+        }
+
+
+
+        int x = coord_assign(command.charAt(0));
+        int y = command.charAt(1) - ('0' + 1);
+
+        Piece target = piece_lookup (x, y);
+
+
+
+        while ((target.color == "white" && turn == false) || (target.color == "black" && turn == true) || (target.color == "blank"))
+        {
+            System.out.println("Error! You do not have piece there, please input a valid move: ");
+            command = input.nextLine(); 
+
+            x = coord_assign(command.charAt(0));
+            y = command.charAt(1) - ('0' + 1);
+
+            target = piece_lookup (x, y);
+
+        }
+
+
+
+        return command; 
+    }
+
+
+    public Piece piece_lookup (int x, int y)
+
+    {   
+        Piece target = this.game_board.board[x][y].resident; 
+        return target;
     }
 
 

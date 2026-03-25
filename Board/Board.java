@@ -1,7 +1,15 @@
+/*
+The game is played on an 8 * 8 square board, represented in this class by a two dimensional array of 
+square objects.
+*/
+
 public class Board {
 
     Square[][] board = new Square[8][8];
 
+
+    //The Board defuault constructor populates the board with squares, and assigns those squares
+    //their board color value. 
     public Board ()
     {
         for (int i = 0; i < 8; i++)
@@ -17,10 +25,12 @@ public class Board {
                 {
                     board[i][j] = new Square(true);
                 }
+
             }
         }
     }
-
+    //This method assigns all of the squares with the piece that starts there
+    //Effectively resetting the board. 
     public void reset_board () 
     {
         board[0][0].resident = new Rook("white"); 
